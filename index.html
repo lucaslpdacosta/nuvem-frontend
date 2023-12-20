@@ -138,7 +138,7 @@
     <script>
         async function getProdutos() {
             try {
-                const response = await fetch('http://backhomolog.10.48.8.15.nip.io/produtos');
+                const response = await fetch('http://backhomolog.192.168.1.4.nip.io/produtos');
                 const data = await response.json();
                 exibirDados(data);
             } catch (error) {
@@ -161,7 +161,7 @@
             };
 
             try {
-                await fetch('http://backhomolog.10.48.8.15.nip.io/produtos', {
+                await fetch('http://backhomolog.192.168.1.4.nip.io/produtos', {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(dados)
@@ -191,7 +191,7 @@
             console.log("ID do produto:", id);
 
             try {
-                const response = await fetch(`http://backhomolog.10.48.8.15.nip.io/produtos/${id}`);
+                const response = await fetch(`http://backhomolog.192.168.1.4.nip.io/produtos/${id}`);
 
                 if (!response.ok) {
                     throw new Error(`Erro ao obter detalhes do produto (Status: ${response.status})`);
@@ -217,7 +217,7 @@
                     };
 
                     try {
-                        await fetch(`http://backhomolog.10.48.8.15.nip.io/produtos/${id}`, {
+                        await fetch(`http://backhomolog.192.168.1.4.nip.io/produtos/${id}`, {
                             method: "PUT",
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(dados)
@@ -243,7 +243,7 @@
             const btnRemoverProduto = document.querySelector("#removerProduto");
             btnRemoverProduto.addEventListener("click", async () => {
                 try {
-                    await fetch(`http://backhomolog.10.48.8.15.nip.io/produtos/${id}`, { method: "DELETE" });
+                    await fetch(`http://backhomolog.192.168.1.4.nip.io/produtos/${id}`, { method: "DELETE" });
                     modalRemover.hide();
                     getProdutos();
                 } catch (error) {
@@ -285,7 +285,7 @@
                 if (!nome) {
                     await getProdutos();
                 } else {
-                    const response = await fetch(`http://backhomolog.10.48.8.15.nip.io/produtos/nome/?nome=${nome}`);
+                    const response = await fetch(`http://backhomolog.192.168.1.4.nip.io/produtos/nome/?nome=${nome}`);
                     const data = await response.json();
                     await exibirDados(data);
                 }
